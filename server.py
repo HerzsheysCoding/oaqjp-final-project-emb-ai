@@ -9,7 +9,9 @@ app = Flask("Emotion Detector")
 
 @app.route("/emotionDetector")
 def sent_analyzer():
-    """Analyze text and handle blank input errors."""
+    """Analyze the text provided by the user and return the emotion analysis.
+    Handles blank inputs or status code 400 errors by returning an error message.
+    """
     text_to_analyze = request.args.get('textToAnalyze')
 
     response = emotion_detector(text_to_analyze)
